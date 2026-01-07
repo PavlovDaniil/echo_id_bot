@@ -1,17 +1,16 @@
 from aiogram import Router
 from aiogram.types import Message
 from aiogram.filters.command import Command
-from src.bot.keyboards import test
 
 commands = Router()
 
 @commands.message(Command("start"))
 async def cmd_start(message: Message):
-    await message.answer("Hello!", reply_markup=test.reply)
+    await message.answer("Hello!")
 
 @commands.message(Command("info"))
 async def cmd_info(message: Message):
-    await message.answer("info", reply_markup=test.inline)
+    await message.answer("info")
 
 @commands.message(Command("help"))
 async def cmd_help(message: Message):

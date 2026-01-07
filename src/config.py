@@ -67,27 +67,10 @@ class LoggingConfig(ConfigBase):
             },
         })
 
-class DatabaseConfig(ConfigBase):
-    model_config = SettingsConfigDict(env_prefix="DB_")
-
-    user: str
-    password: str
-    host: str
-    port: int
-    name: str
-
-    @property
-    def url(self) -> str:
-        return (
-            f"postgresql+asyncpg://"
-            f"{self.user}:{self.password}@{self.host}:{self.port}/{self.name}"
-        )
-
 
 class Config(BaseSettings):
     telegram: TelegramConfig = Field(default_factory=TelegramConfig)
     logging: LoggingConfig = Field(default_factory=LoggingConfig)
-    database: DatabaseConfig = Field(default_factory=DatabaseConfig)
 
     @classmethod
     def load(cls) -> "Config":
