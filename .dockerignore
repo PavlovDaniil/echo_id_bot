@@ -1,0 +1,24 @@
+# IDE и конфиги разработки
+.idea
+*.iml
+
+# Виртуальные окружения
+.venv
+
+# Логи и временные файлы
+app.log
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Системные файлы macOS
+.DS_Store
+
+# Git
+.git
+.gitignore
+
+# Docker сам не нужен внутри контейнера
+dockerignore
